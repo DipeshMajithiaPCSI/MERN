@@ -1,0 +1,41 @@
+.sectionCotainer {
+    padding: 100px 124px;
+    background-image: url('../images/publicbaseimg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+
+}
+
+.innerdiv {
+    background-color: #D3DFFF;
+    display: flex;
+    flex-direction: row;
+    border-radius: 50px;
+}
+
+.sectionLeft {
+    padding: 70px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.img {
+    width: 100%;
+    height: auto;
+    max-width: 530px;
+}
+
+.sectionRight {
+    padding: 40px 145px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 50px;
+    box-shadow: -10px 0px 20px 0px #00000014;
+    width: 100%;
+
+}
