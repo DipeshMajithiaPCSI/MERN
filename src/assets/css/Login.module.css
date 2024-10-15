@@ -1,0 +1,87 @@
+.sectionContainer {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 140px 0px
+}
+
+.titleText {
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 600;
+    text-align: left;
+
+}
+
+.subText {
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: left;
+
+}
+
+.inputSection {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px
+}
+
+.inputItem {
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+}
+
+.inputbox {
+    padding: 16px;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px
+}
+
+.rmbme {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rmbmeleft {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+}
+
+.fgtpwdtext {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19.36px;
+    text-align: left;
+    color: #1488CC;
+
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    align-items: center;
+    margin-top: 30px;
+
+}
+
+.btnSignIn {
+    border: none;
+    color: #ffffff;
+    background-color: #1488CC;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    width: 100%;
+}
