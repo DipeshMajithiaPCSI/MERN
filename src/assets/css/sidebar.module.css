@@ -1,0 +1,57 @@
+.hamburgerbutton{
+    display: none;
+}
+.sidebarnavmaindiv{
+    display:none;
+}
+
+
+
+/* -----------------Media query for tablet version-------------------------------- */
+@media only screen and (max-width:1024px) {
+    .hamburgerbutton{
+        display: flex;
+        background-color: #ffff;
+        border: none;
+        
+    }
+    .sidebarnavmaindiv{
+        display: flex;
+        flex-direction: column;
+        padding: 40px;
+        position: absolute;
+        top: 75px;
+        right: 0px;
+        background-color: #ffff;
+        transition: all 0.5s ease-in;
+    }.transiondiv{
+        display: none;
+        flex-direction: column;
+        height: auto;
+        gap: 38px;
+    }
+  
+    .closesidebar{
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+    }.headerlogo1{
+        width: 100%;
+        max-width: 410px;
+        height: auto;
+        padding-left: 68px;
+        margin-top: 17px;
+    }.headernav{
+        display: flex;
+        flex-direction: column;
+        padding-left: 15px;
+        gap: 37px;
+        padding-bottom: 250px;
+    }
+    /* here is the doubt, there is no apply CSS on the below class */
+    /* .navopn{
+        font-size: clamp(1rem, 1.6vw, 2rem);
+        font-weight: bold;
+        display: flex; */
+    /* } */
+}

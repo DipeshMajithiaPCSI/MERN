@@ -4,6 +4,7 @@ import Home from "./pages/Protected/Home";
 import Login from "../src/components/Login";
 import { useState } from "react";
 import SignUp from "./components/SignUp";
+import ForgotPassword from "./components/ForgotPassword";
 function App() {
   const [pageType, setPageType] = useState("login");
   console.log("PageType", pageType);
@@ -16,7 +17,9 @@ function App() {
           <SignUp setPageType={setPageType} />
         )}
       </PublicBase> */}
-      <Home />
+      {/* <Home /> */}
+      <PublicBase><ForgotPassword/></PublicBase>
+      
     </div>
   );
 }
