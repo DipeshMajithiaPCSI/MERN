@@ -21,7 +21,12 @@ function Login({ setPageType }) {
           <label>Remember me</label>
         </div>
         <div className={styles.rmbmeleft}>
-          <p className={styles.fgtpwdtext} onClick={() => {}}>
+          <p
+            className={styles.fgtpwdtext}
+            onClick={() => {
+              setPageType("forgotpassword");
+            }}
+          >
             Forgot Password?
           </p>
         </div>

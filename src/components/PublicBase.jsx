@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "../../assets/css/PublicBase.module.css";
-import img1 from "../../assets/images/publicbaseinnerimg.png";
+import styles from "../assets/css/PublicBase.module.css";
+import img1 from "../assets/images/publicbaseinnerimg.png";
 function PublicBase({ children }) {
   return (
     <div className={styles.sectionCotainer}>
