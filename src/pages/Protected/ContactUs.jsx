@@ -14,7 +14,10 @@ function ContactUs() {
         <div className={styles.section2}>
           <div className={styles.divshadow}>
             <div className={styles.divshadow}>
-              <div className={styles.divshadow} style={{marginBottom: "20px"}}>
+              <div
+                className={styles.divshadow}
+                style={{ marginBottom: "20px" }}
+              >
                 <p className={styles.locationtitle}>USA</p>
                 <p className={styles.locationinfo}>
                   <span>
@@ -29,7 +32,7 @@ function ContactUs() {
                   demo@gmail.com
                 </p>
                 <p className={styles.locationinfo}>
-                  <span style={{marginTop:"-12px"}}>
+                  <span style={{ marginTop: "-12px" }}>
                     <img src={require(`../../assets/images/location1.png`)} />
                   </span>
                   Lorem ipsum dolor sit amet consectetur. Vel
@@ -52,7 +55,7 @@ function ContactUs() {
                   demo@gmail.com
                 </p>
                 <p className={styles.locationinfo}>
-                  <span style={{marginTop:"-12px"}}>
+                  <span style={{ marginTop: "-12px" }}>
                     <img src={require(`../../assets/images/location1.png`)} />
                   </span>
                   Lorem ipsum dolor sit amet consectetur. Vel
