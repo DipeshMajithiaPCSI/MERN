@@ -55,8 +55,7 @@ function Header() {
         <div className={styles.headernavigation}>
           {routelinks?.map((val, i) => {
             return (
-              <p
-                key={String(i)}
+              <p key={String(i)}
                 onClick={() => {
                   navigation(val?.link);
                 }}
@@ -67,8 +66,10 @@ function Header() {
           })}
         </div>
         <div className={styles.divcontact}>
-          <button className={styles.headercontact}>
-            <a style={{ color: "#fff" }} href="./contactus.html">
+          <button onClick={()=>{
+            navigation("contactus")
+          }} className={styles.headercontact}>
+            <a style={{ color: "#fff" }} >
               Contact Us
             </a>
           </button>

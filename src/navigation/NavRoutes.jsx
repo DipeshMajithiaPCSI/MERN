@@ -7,8 +7,6 @@ import ContactUs from "../pages/Protected/ContactUs";
 import Inquiry from "../pages/Protected/Inquiry";
 import PrivateRoutes from "./ProtectedRoute";
 import PublicScreens from "../pages/Public/PublicScreens";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 function NavRoutes() {
   return (
     <div>

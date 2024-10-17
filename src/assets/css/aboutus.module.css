@@ -1,0 +1,127 @@
+.section1img {
+    height: auto;
+    max-width: 1920px;
+    width: 100%;
+}
+
+.section2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.section2up {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 114px 100px 100px 100px;
+}
+
+.section2left {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 42%;
+
+}
+
+.missiontext {
+    font-family: "Inter", sans-serif;
+    font-size: clamp(1rem, 1.8vw, 2rem);
+    font-weight: 600;
+    color: #1488CC;
+}
+
+.missionmoto {
+    font-family: "Inter", sans-serif;
+    font-size: clamp(2rem, 3.5vw, 4rem);
+    font-weight: 700;
+    color: #000000;
+}
+
+.section2right {
+    display: flex;
+    width: 56%;
+}
+
+.missiondetails {
+    font-family: "Inter", sans-serif;
+    font-size: clamp(0.7rem, 1.4vw, 1.5rem);
+    font-weight: 400;
+    color: #676767;
+    line-height: 60px;
+}.target{
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(90deg, #314755 0%, #26A0DA 100%);
+    backdrop-filter: blur(5px);
+    padding: 110px 128px;
+    margin-bottom: 100px;
+
+}.targetvalue{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}.targetdiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}.targetnumer{
+    font-family: "Expletus Sans", sans-serif;
+    font-size: clamp(2rem, 3.4vw, 4rem);
+    font-weight: 700;
+    color: #FFFFFF;
+}.targettitle{
+    font-family: "Inter", sans-serif;
+    font-size: clamp(1.2rem, 2.2vw, 2.5rem);
+    font-weight: 500;
+    color: #FFFFFF;
+}
+
+
+
+/* --------------------------------------------------Media Queries----------------------------------------------------- */
+
+@media only screen and (max-width: 1024px) {
+    .section2up {
+        flex-direction: column;
+    }
+
+    .section2left {
+        width: 100%;
+    }
+
+    .section2right {
+        width: 100%;
+    }.target{
+        padding: 74px 22px;
+    }
+
+
+}
+/* --------------------------------------------------Media Queries mobile version----------------------------------------------------- */
+
+@media only screen and (max-width: 428px) {
+    .section2up{
+        padding: 40px 16px 64px 16px;
+    }.missiondetails{
+        line-height: 30px;
+    }.missionmoto{
+        line-height: 40px;
+    }.targetvalue{
+        flex-direction: column;
+        gap: 20px   ;
+    }.target{
+        padding: 40px 16px;
+        margin-bottom: 64px;
+    }
+
+
+}
+
+
+
+
+
+
+
