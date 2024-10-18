@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
 import styles from "../assets/css/Login.module.css";
-function Login({ setPageType }) {
+import { useNavigate } from "react-router-dom";
+function Login({ setPageType, login }) {
+  const email = useRef();
+  const password = useRef();
   return (
     <div className={styles.sectionContainer}>
       <p className={styles.titleText}>Sign In</p>
@@ -8,11 +11,15 @@ function Login({ setPageType }) {
       <div className={styles.inputSection}>
         <div className={styles.inputItem}>
           <label>Email</label>
-          <input placeholder="Email" className={styles.inputbox} />
+          <input ref={email} placeholder="Email" className={styles.inputbox} />
         </div>
         <div className={styles.inputItem}>
           <label>Password</label>
-          <input placeholder="Password" className={styles.inputbox} />
+          <input
+            ref={password}
+            placeholder="Password"
+            className={styles.inputbox}
+          />
         </div>
       </div>
       <div className={styles.rmbme}>
@@ -32,7 +39,14 @@ function Login({ setPageType }) {
         </div>
       </div>
       <div className={styles.buttonContainer}>
-        <button className={styles.btnSignIn}>Sign In</button>
+        <button
+          className={styles.btnSignIn}
+          onClick={() => {
+            login(email, password);
+          }}
+        >
+          Sign In
+        </button>
         <p>
           Not a member yet?{" "}
           <span

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "../pages/Protected/Home";
 import Courses from "../pages/Protected/Courses";
@@ -8,18 +8,19 @@ import Inquiry from "../pages/Protected/Inquiry";
 import PrivateRoutes from "./ProtectedRoute";
 import PublicScreens from "../pages/Public/PublicScreens";
 function NavRoutes() {
+  const [auth, setAuth] = useState(false);
   return (
     <div>
       <Router>
         <Routes>
-          <Route element={<PrivateRoutes />}>
+          <Route element={<PrivateRoutes auth={auth} setAuth={setAuth} />}>
             <Route path="/" element={<Home />} />
             <Route path="/courses" element={<Courses />} />
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/inquiry" element={<Inquiry />} />
             <Route path="/contactus" element={<ContactUs />} />
           </Route>
-          <Route path="/login" element={<PublicScreens />} />
+          <Route path="/login" element={<PublicScreens setAuth={setAuth} />} />
         </Routes>
       </Router>
     </div>

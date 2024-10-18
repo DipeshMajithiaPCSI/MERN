@@ -1,11 +1,10 @@
 import { Navigate, Outlet } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-function PrivateRoutes() {
-  let auth = { token: true };
-  return auth.token ? (
+function PrivateRoutes({ auth, setAuth }) {
+  return auth ? (
     <>
-      <Header />
+      <Header setAuth={setAuth} />
       <Outlet />
       <Footer />
     </>

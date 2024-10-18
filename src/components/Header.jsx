@@ -1,9 +1,9 @@
-import React from "react";
+import React, { memo } from "react";
 import styles from "../assets/css/Header.module.css";
 import sidebar from "../assets/css/sidebar.module.css";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
-function Header() {
+function Header({ setAuth }) {
   const navigation = useNavigate();
   const routelinks = [
     { name: "Home", link: "" },
@@ -11,6 +11,8 @@ function Header() {
     { name: "Inquiry", link: "inquiry" },
     { name: "About Us", link: "aboutus" },
   ];
+  const location = useLocation();
+
   return (
     <div>
       <header className={styles.preheader}>
@@ -39,7 +41,14 @@ function Header() {
         </div>
         <div className={styles.preheaderright}>
           <p className={styles.preheadertext}>Hello! Mitkumar Hire</p>
-          <button className={styles.preheaderbutton}>Logout</button>
+          <button
+            className={styles.preheaderbutton}
+            onClick={() => {
+              setAuth(false);
+            }}
+          >
+            Logout
+          </button>
         </div>
       </header>
       {/* <!------------------------------ Header -------------------------------------------------> */}
@@ -55,23 +64,36 @@ function Header() {
         <div className={styles.headernavigation}>
           {routelinks?.map((val, i) => {
             return (
-              <p key={String(i)}
+              <p
+                key={String(i)}
                 onClick={() => {
                   navigation(val?.link);
                 }}
               >
-                <a activeClassName="active" className={styles.navopn}>{val?.name}</a>
+                <a
+                  activeClassName="active"
+                  style={{
+                    color:
+                      location?.pathname === `/${val?.link}`
+                        ? "#1488CC"
+                        : "#000000",
+                  }}
+                  className={styles.navopn}
+                >
+                  {val?.name}
+                </a>
               </p>
             );
           })}
         </div>
         <div className={styles.divcontact}>
-          <button onClick={()=>{
-            navigation("contactus")
-          }} className={styles.headercontact}>
-            <a style={{ color: "#fff" }} >
-              Contact Us
-            </a>
+          <button
+            onClick={() => {
+              navigation("contactus");
+            }}
+            className={styles.headercontact}
+          >
+            <a style={{ color: "#fff" }}>Contact Us</a>
           </button>
           <button onclick="opensidebar()" className={sidebar.hamburgerbutton}>
             <img alt="img" src={require(`../assets/images/hamburger.png`)} />
@@ -130,4 +152,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default memo(Header);
