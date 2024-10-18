@@ -60,7 +60,7 @@ function Header() {
                   navigation(val?.link);
                 }}
               >
-                <a className={styles.navopn}>{val?.name}</a>
+                <a activeClassName="active" className={styles.navopn}>{val?.name}</a>
               </p>
             );
           })}

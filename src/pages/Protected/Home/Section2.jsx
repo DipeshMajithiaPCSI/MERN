@@ -10,25 +10,33 @@ function Section2() {
       duration: "10 Weeks",
     },
     {
-      title: "Introduction to Machine Learning 2 ",
-      category: "Artificial Intelligence",
+      title: "React.js - Building Interactive User Interfaces ",
+      category: "Front-End",
       image: CardImg1,
       duration: "12 Weeks",
     },
     {
-      title: "Introduction to Machine Learning 3 ",
-      category: "Artificial Intelligence",
+      title: "React Native Building Cross-Platform Mobile Apps ",
+      category: "Front-End",
       image: CardImg1,
       duration: "10 Weeks",
     },
     {
-      title: "Introduction to Machine Learning 4 ",
-      category: "Artificial Intelligence",
+      title: "The Complete DBMS Bootcamp ",
+      category: "Back-End",
       image: CardImg1,
       duration: "12 Weeks",
     },
   ];
-  let categorylist = [];
+  let categorylist = [
+    {cat:'All Categories'},
+    {cat:"Artificial Intelligence"},
+    {cat:"Business Analysis"},
+    {cat:"UI/UX Design"},
+    {cat:"Front-End"},
+    {cat:"Back-End"},
+    {cat:"Project Management"},    
+  ];
   return (
     <div>
       <div className={styles.section2div}>
@@ -37,13 +45,9 @@ function Section2() {
           <p className={styles.section2subtext}>Pick a Course to Get Started</p>
         </div>
         <div className={styles.categorydiv}>
-          <p className={styles.categorytext}>All Categories</p>
-          <p className={styles.categorytext}>Artificial Intelligence</p>
-          <p className={styles.categorytext}>Business Analysis</p>
-          <p className={styles.categorytext}>UI/UX Design</p>
-          <p className={styles.categorytext}>Front-End</p>
-          <p className={styles.categorytext}>Back-End</p>
-          <p className={styles.categorytext}>Project Management</p>
+          {categorylist?.map((val,i)=>{
+            return(<p key={String(i)} className={styles.categorytext}>{val.cat}</p>);
+          })}
         </div>
         <div className={styles.cardsectiondiv}>
           {data?.map((val, i) => {
@@ -66,7 +70,7 @@ function Section2() {
                   <p className={styles.cardlearnmoretext}>
                     Learn More
                     <span className={styles.clardlearnmorearrow}>
-                      <img src="../../../assets/images/rightarrow.png" />
+                      <img src={require("../../../assets/images/rightarrow.png")} />
                     </span>
                   </p>
                 </div>
