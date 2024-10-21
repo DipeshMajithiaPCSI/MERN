@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import styles from "../assets/css/Login.module.css";
 import { useNavigate } from "react-router-dom";
-function Login({ setPageType, login }) {
+function Login({ setType, login }) {
   const email = useRef();
   const password = useRef();
   return (
@@ -31,7 +31,7 @@ function Login({ setPageType, login }) {
           <p
             className={styles.fgtpwdtext}
             onClick={() => {
-              setPageType("forgotpassword");
+              setType("forgotpassword");
             }}
           >
             Forgot Password?
@@ -51,9 +51,9 @@ function Login({ setPageType, login }) {
           Not a member yet?{" "}
           <span
             onClick={() => {
-              setPageType("signup");
+              setType("signup");
             }}
-            style={{ color: "#1488CC" }}
+            style={{ color: "#1488CC",cursor:"pointer" }}
           >
             Sign Up
           </span>

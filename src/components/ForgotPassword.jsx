@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../assets/css/SignUp.module.css";
-function ForgotPassword({ setPageType }) {
+function ForgotPassword({ setType }) {
   return (
     <div className={styles.sectionContainer}>
       <p className={styles.titleText}>Forgot Password?</p>
@@ -16,9 +16,9 @@ function ForgotPassword({ setPageType }) {
             Back to{" "}
             <span
               onClick={() => {
-                setPageType("login");
-              }}
-              style={{ color: "#1488CC" }}
+                setType("login");
+              } }
+              style={{ color: "#1488CC",cursor:"pointer"}}
             >
               Sign In
             </span>

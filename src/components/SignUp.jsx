@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../assets/css/SignUp.module.css";
-function SignUp({ setPageType }) {
+function SignUp({ setType }) {
   return (
     <div className={styles.sectionContainer}>
       <p className={styles.titleText}>Sign In</p>
@@ -29,9 +29,9 @@ function SignUp({ setPageType }) {
           Already a member?{" "}
           <span
             onClick={() => {
-              setPageType("login");
+              setType("login");
             }}
-            style={{ color: "#1488CC" }}
+            style={{ color: "#1488CC",cursor:"pointer" }}
           >
             Sign In
           </span>

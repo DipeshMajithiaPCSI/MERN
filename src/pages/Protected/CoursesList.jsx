@@ -1,5 +1,4 @@
-import React from "react";
-import styles from "../../assets/css/Course.module.css";
+import React from 'react';
 import CardImg1 from "../../assets/images/cardimg1.png";
 import CardImg2 from "../../assets/images/cardimg2.png";
 import CardImg3 from "../../assets/images/cardimg3.png";
@@ -7,12 +6,13 @@ import CardImg4 from "../../assets/images/cardimg4.png";
 import CardImg5 from "../../assets/images/cardimg5.png";
 import CardImg6 from "../../assets/images/cardimg6.png";
 import PageImg1 from "../../assets/images/page1img.png";
-import Pg1Menu1 from "../../assets/images/pg1menu1.png";
-import Pg1Menu2 from "../../assets/images/pg1menu2.png";
-import {useNavigate } from "react-router-dom";
+import Pg1Menu3 from "../../assets/images/pg1menu3.png";
+import Pg1Menu4 from "../../assets/images/pg1menu4.png";
+import styles from "../../assets/css/CourseList.module.css";
+import { useNavigate } from 'react-router-dom';
 
-function Courses() {
-  const navigation=useNavigate();
+function CoursesList() {
+  const navigate=useNavigate();
   let card=[
     {img: CardImg1,
       title:"Artificial Intelegince",
@@ -49,8 +49,9 @@ function Courses() {
       duration: "50 Hours"
     },
   ]
-  return <div>
-     {/* <!-- ----------------------------------------section1------------------------------------------------ --> */}
+  return (
+    <div>
+         {/* <!-- ----------------------------------------section1------------------------------------------------ --> */}
     <div className={styles.section1}>
         <div>
             <img className={styles.section1img} src={PageImg1}/>
@@ -58,8 +59,8 @@ function Courses() {
         {/* <!-- ----------------------------------------section2------------------------------------------------ --> */}
         <div className={styles.section2menu}>
             <div className={styles.menuleft}>
-                <img src={Pg1Menu1}/>
-                <img src={Pg1Menu2} onClick={()=>{navigation("/courseslist")}}/>
+                <img src={Pg1Menu3} onClick={()=>navigate("/courses")}/>
+                <img src={Pg1Menu4}/>
                 <p className={styles.menulefttext}>Showing 1-6 of 10 results</p>
             </div>
             <div className={styles.menuright}>
@@ -70,24 +71,25 @@ function Courses() {
     {/* <!-- ----------------------------------------section3------------------------------------------------ --> */}
     <div className={styles.section3}>
         {
-          card?.map((val,i)=>{
+          card.map((val,i)=>{
             return(
-              <div key={String(i)} className={styles.cardcontainer}>
-              <img className={styles.cardcontainerimg} src={val?.img}/>
-              <div className={styles.cardcontainerbottom}>
-                <p className={styles.cardcontainertitle}>{val?.title}</p>
+            <div key={String(i)} className={styles.cardcontainer}>
+            <img className={styles.cardcontainerimg} src={val.img}/>
+            <div className={styles.cardcontainerbottom}>
+                <p className={styles.cardcontainertitle}>{val.title}</p>
                 <p className={styles.cardcontainerinfo}>{val.info}</p>
-                <p className={styles.cardcontainertime}><span><img src={require("../../assets/images/cardtime.png")} alt="img"/></span>{val.duration}</p>
-            </div>
-            <div className={styles.cardcontainermore}>
-                <p className={styles.moretext}>Learn More<span onClick={()=>{navigation("/coursecontent")}}><img src={require("../../assets/images/rightarrow.png")}/></span></p>
+                <p className={styles.cardcontainertime}><span><img src={require("../../assets/images/cardtime.png")} alt=""/></span>{val.duration}</p>
+                <div className={styles.cardcontainermore}>
+                    <p className={styles.moretext}>Learn More<span onClick={()=>{navigate("/coursecontent")}}><img src={require("../../assets/images/rightarrow.png")}/></span></p>
+                </div>
             </div>
         </div>
-            );
+        );
           })
         }
+      </div>
     </div>
-  </div>;
+  )
 }
 
-export default Courses;
+export default CoursesList

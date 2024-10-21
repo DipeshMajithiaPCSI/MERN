@@ -1,10 +1,11 @@
 import { Navigate, Outlet } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-function PrivateRoutes({ auth, setAuth }) {
+import { useState } from "react";
+function PrivateRoutes({ auth, setAuth,userName }) {
   return auth ? (
     <>
-      <Header setAuth={setAuth} />
+      <Header setAuth={setAuth} userName={userName}/>
       <Outlet />
       <Footer />
     </>

@@ -1,7 +1,46 @@
 import React from "react";
 import styles from "../../assets/css/ContactUs.module.css";
+import { Formik,Form,ErrorMessage,Field} from 'formik';
+import * as Yup from 'yup';
 
 function ContactUs() {
+    const initialValues={
+                firstname:"",
+                lastname:"",
+                email:"",
+                phonenumber:"",
+                subject:"",
+                message:""
+            };
+    const onSubmit = (values)=>{
+                console.log(values);
+            };
+    const validationSchema=Yup.object().shape({
+                firstname: Yup.string().required("Please Enter the First Name").min(2,"too short").max(20,"to long"),
+                lastname: Yup.string().required("Please Enter the Last Name").min(2,"too short").max(20,"to long"),
+                email: Yup.string().email().required("Please enter the Email-id").min(2,"too short").max(20,"to long"),
+                phonenumber: Yup.number().positive().required("Please enter the phone number").min(10,"too short").max(15,"to long"),
+                subject: Yup.number().required("Please enter the subject").min(2,"too short").max(20,"to long"),
+                message: Yup.number().required("Please enter the phone message").min(2,"too short").max(200,"to long")
+            })
+    // const formik =useFormik({
+    //     initialValues:{
+    //         firstname:"",
+    //         lastname:"",
+    //         email:"",
+    //         phonenumber:"",
+    //         subject:"",
+    //         message:""
+    //     },
+    //     onSubmit: values=>{
+    //         console.log(values)
+    //     },
+    //     validationSchema:Yup.object({
+    //         firstname: Yup.string().required("Please Enter the First Name"),
+    //         lastname: Yup.string().required("Pease Enter the Lastname Name"),
+    //         email: Yup.string().required("Pease enter the Email-id")
+    //     })
+    // })
   return (
     <div>
          {/* <!-- ----------------------------------------section1------------------------------------------------ --> */}
@@ -36,40 +75,55 @@ function ContactUs() {
                     </div>
 
                 </div>
+                <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
+                {
+                    ()=>(
+                        <Form>  
+                    {/* {alert(formik.errors.email && formik.touched.email && formik.errors.email)}  */}
                 <div className={styles.formdiv}>
                     <div className={styles.formrow1}>
                         <div className={styles.formdata}>
                             <label>First Name</label>
-                            <input type="text"/>
+                            <Field name="firstname" />
+                            <ErrorMessage name="firstname" component="span"/>
                         </div>
                         <div className={styles.formdata}>
                             <label>Last Name</label>
-                            <input type="text"/>
+                            <Field name="lastname" />
+                            <ErrorMessage name="lastname" component="span"/>                    
                         </div>
                     </div>
 
                     <div className={styles.formrow1}>
                         <div className={styles.formdata}>
                             <label>Email</label>
-                            <input type="email"/>
+                            <Field name="email" />
+                            <ErrorMessage name="email" component="span"/> 
                         </div>
                         <div className={styles.formdata}>
                             <label>Phone Number</label>
-                            <input type="number"/>
+                            <Field name="phonenumber" />
+                            <ErrorMessage name="phonenumber" component="span"/>                             
                         </div>
                     </div>
                     <div className={styles.formdata}>
                         <label>Subject</label>
-                        <input type="text"/>
+                        <Field name="subject" />
+                        <ErrorMessage name="subject" component="span"/>                  
                     </div>
                     <div className={styles.formdata}>
                         <label>Message</label>
-                        <input type="text"/>
+                        <Field name="message" />
+                        <ErrorMessage name="message" component="span"/>
                     </div>
                     <div className={styles.contactbtn}>
-                        <button className={styles.headercontact}>Send Message</button>
+                        <button type="submit" name="sendbtn" className={styles.headercontact}>Send Message</button>
                     </div>
                 </div>
+                </Form>
+                    )
+                }
+                </Formik>
             </div>
         </div>
     </div>

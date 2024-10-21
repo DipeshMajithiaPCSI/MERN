@@ -3,7 +3,7 @@ import styles from "../assets/css/Header.module.css";
 import sidebar from "../assets/css/sidebar.module.css";
 import { useLocation, useNavigate } from "react-router-dom";
 
-function Header({ setAuth }) {
+function Header({ setAuth,userName }) {
   const navigation = useNavigate();
   const routelinks = [
     { name: "Home", link: "" },
@@ -40,7 +40,7 @@ function Header({ setAuth }) {
           </p>
         </div>
         <div className={styles.preheaderright}>
-          <p className={styles.preheadertext}>Hello! Mitkumar Hire</p>
+          <p className={styles.preheadertext}>Hello! {userName}</p>
           <button
             className={styles.preheaderbutton}
             onClick={() => {

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../../../assets/css/Home.module.css";
 import CardImg1 from "../../../assets/images/cardimg1.png";
+import { useNavigate } from "react-router-dom";
 function Section2() {
   let data = [
     {
@@ -29,14 +30,16 @@ function Section2() {
     },
   ];
   let categorylist = [
-    {cat:'All Categories'},
-    {cat:"Artificial Intelligence"},
-    {cat:"Business Analysis"},
-    {cat:"UI/UX Design"},
-    {cat:"Front-End"},
-    {cat:"Back-End"},
-    {cat:"Project Management"},    
+    {cat:'All Categories',id:1 },
+    {cat:"Artificial Intelligence",id:2},
+    {cat:"Business Analysis",id:3},
+    {cat:"UI/UX Design",id:4},
+    {cat:"Front-End",id:5},
+    {cat:"Back-End",id:6},
+    {cat:"Project Management",id:7},    
   ];
+
+  const navigation=useNavigate();
   return (
     <div>
       <div className={styles.section2div}>
@@ -46,7 +49,7 @@ function Section2() {
         </div>
         <div className={styles.categorydiv}>
           {categorylist?.map((val,i)=>{
-            return(<p key={String(i)} className={styles.categorytext}>{val.cat}</p>);
+            return(<p key={String(i)}  className={styles.categorytext}>{val.cat}</p>);
           })}
         </div>
         <div className={styles.cardsectiondiv}>
@@ -79,7 +82,7 @@ function Section2() {
           })}
         </div>
         <div className={styles.section2button}>
-          <button className={styles.browsemorebutton}>
+          <button onClick={()=>{navigation("/courses")}} className={styles.browsemorebutton}>
             Browse More Courses
           </button>
         </div>
