@@ -2,10 +2,12 @@ import { Navigate, Outlet } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useState } from "react";
-function PrivateRoutes({ auth, setAuth,userName }) {
+import { useSelector } from "react-redux";
+function PrivateRoutes() {
+  let auth = useSelector((state) => state?.allData?.user_details);
   return auth ? (
     <>
-      <Header setAuth={setAuth} userName={userName}/>
+      <Header />
       <Outlet />
       <Footer />
     </>

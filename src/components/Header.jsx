@@ -2,9 +2,11 @@ import React, { memo } from "react";
 import styles from "../assets/css/Header.module.css";
 import sidebar from "../assets/css/sidebar.module.css";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
-function Header({ setAuth,userName }) {
+function Header() {
   const navigation = useNavigate();
+  const dispatch = useDispatch();
   const routelinks = [
     { name: "Home", link: "" },
     { name: "Course", link: "courses" },
@@ -12,7 +14,7 @@ function Header({ setAuth,userName }) {
     { name: "About Us", link: "aboutus" },
   ];
   const location = useLocation();
-
+  let userName = useSelector((state) => state?.allData?.user_details?.email);
   return (
     <div>
       <header className={styles.preheader}>
@@ -44,7 +46,7 @@ function Header({ setAuth,userName }) {
           <button
             className={styles.preheaderbutton}
             onClick={() => {
-              setAuth(false);
+              dispatch({ type: "USER_DETAILS", payload: undefined });
             }}
           >
             Logout

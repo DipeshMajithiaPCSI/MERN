@@ -10,22 +10,20 @@ import PublicScreens from "../pages/Public/PublicScreens";
 import CoursesList from "../pages/Protected/CoursesList";
 import CourseContent from "../pages/Protected/CourseContent";
 function NavRoutes() {
-  const [auth, setAuth] = useState(false);  
-  const [userName,SetUserName]=useState(" ");
   return (
     <div>
       <Router>
         <Routes>
-          <Route element={<PrivateRoutes auth={auth} setAuth={setAuth} userName={userName} />}>
+          <Route element={<PrivateRoutes />}>
             <Route path="/" element={<Home />} />
             <Route path="/courses" element={<Courses />} />
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/inquiry" element={<Inquiry />} />
             <Route path="/contactus" element={<ContactUs />} />
-            <Route path="/courseslist" element={<CoursesList/>}/>
-          <Route path="/coursecontent" element={<CourseContent/>}/>
+            <Route path="/courseslist" element={<CoursesList />} />
+            <Route path="/coursecontent" element={<CourseContent />} />
           </Route>
-          <Route path="/login" element={<PublicScreens setAuth={setAuth} SetUserName={SetUserName}/>} />
+          <Route path="/login" element={<PublicScreens />} />
         </Routes>
       </Router>
     </div>

@@ -30,16 +30,16 @@ function Section2() {
     },
   ];
   let categorylist = [
-    {cat:'All Categories',id:1 },
-    {cat:"Artificial Intelligence",id:2},
-    {cat:"Business Analysis",id:3},
-    {cat:"UI/UX Design",id:4},
-    {cat:"Front-End",id:5},
-    {cat:"Back-End",id:6},
-    {cat:"Project Management",id:7},    
+    { cat: "All Categories", id: 1 },
+    { cat: "Artificial Intelligence", id: 2 },
+    { cat: "Business Analysis", id: 3 },
+    { cat: "UI/UX Design", id: 4 },
+    { cat: "Front-End", id: 5 },
+    { cat: "Back-End", id: 6 },
+    { cat: "Project Management", id: 7 },
   ];
-
-  const navigation=useNavigate();
+  const [selectedCategory, setSelectedCategory] = useState("All Categories");
+  const navigation = useNavigate();
   return (
     <div>
       <div className={styles.section2div}>
@@ -48,8 +48,41 @@ function Section2() {
           <p className={styles.section2subtext}>Pick a Course to Get Started</p>
         </div>
         <div className={styles.categorydiv}>
-          {categorylist?.map((val,i)=>{
-            return(<p key={String(i)}  className={styles.categorytext}>{val.cat}</p>);
+          {categorylist?.map((val, i) => {
+            return (
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 2,
+                }}
+              >
+                <p
+                  style={{
+                    textDecoration:
+                      selectedCategory == val?.cat ? "underline" : "none",
+                    textDecorationColor: "blue",
+                  }}
+                  key={String(i)}
+                  className={styles.categorytext}
+                  onClick={() => {
+                    setSelectedCategory(val?.cat);
+                  }}
+                >
+                  {val.cat}
+                </p>
+                {/* {selectedCategory == val?.cat && (
+                  <div
+                    style={{
+                      height: 5,
+                      width: "100%",
+                      backgroundColor: "blue",
+                      borderRadius: 50,
+                    }}
+                  ></div>
+                )} */}
+              </div>
+            );
           })}
         </div>
         <div className={styles.cardsectiondiv}>
@@ -73,7 +106,9 @@ function Section2() {
                   <p className={styles.cardlearnmoretext}>
                     Learn More
                     <span className={styles.clardlearnmorearrow}>
-                      <img src={require("../../../assets/images/rightarrow.png")} />
+                      <img
+                        src={require("../../../assets/images/rightarrow.png")}
+                      />
                     </span>
                   </p>
                 </div>
@@ -82,7 +117,12 @@ function Section2() {
           })}
         </div>
         <div className={styles.section2button}>
-          <button onClick={()=>{navigation("/courses")}} className={styles.browsemorebutton}>
+          <button
+            onClick={() => {
+              navigation("/courses");
+            }}
+            className={styles.browsemorebutton}
+          >
             Browse More Courses
           </button>
         </div>
