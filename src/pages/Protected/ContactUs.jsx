@@ -34,11 +34,11 @@ function ContactUs() {
       .required("Please enter the phone number")
       .min(10, "too short")
       .max(15, "to long"),
-    subject: Yup.number()
+    subject: Yup.string()
       .required("Please enter the subject")
       .min(2, "too short")
       .max(20, "to long"),
-    message: Yup.number()
+    message: Yup.string()
       .required("Please enter the phone message")
       .min(2, "too short")
       .max(200, "to long"),

@@ -8,8 +8,13 @@ import sec2right4 from "../../../assets/images/sec2right4.png";
 import sec2right5 from "../../../assets/images/sec2right5.png";
 import sec2right6 from "../../../assets/images/sec2right6.png";
 import sec2right7 from "../../../assets/images/sec2right7.png";
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
 
 function Section2() {
+    const navigate= useNavigate();
+    let title=useSelector((state)=>state?.allData);
+    console.log(title)
   return (
     <div>
       <div className={styles.section2}>
@@ -59,7 +64,7 @@ function Section2() {
                 <p className={styles.sec2rightdatatext}><span><img src={sec2right7}/></span>Certificate</p>
                 <p className={styles.sec2rightdatatext}>Yes</p>
             </div>
-            <div className={styles.sec2rightbtn}><button className={styles.headercontact}>Inquiry Now</button></div>
+            <div className={styles.sec2rightbtn}><button onClick={()=>{navigate("/inquiry")}}  className={styles.headercontact}>Inquiry Now</button></div>
            </div>
     </div>
     </div>

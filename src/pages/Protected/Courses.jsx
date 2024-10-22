@@ -10,7 +10,7 @@ import PageImg1 from "../../assets/images/page1img.png";
 import Pg1Menu1 from "../../assets/images/pg1menu1.png";
 import Pg1Menu2 from "../../assets/images/pg1menu2.png";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 function Courses() {
   let userName = useSelector((state) => state?.allData?.user_details?.email);
@@ -66,6 +66,7 @@ function Courses() {
       duration: "50 Hours",
     },
   ];
+  const dispatch= useDispatch();
   return (
     <div>
       {/* <!-- ----------------------------------------section1------------------------------------------------ --> */}
@@ -113,14 +114,16 @@ function Courses() {
                   {val.duration}
                 </p>
               </div>
-              <div className={styles.cardcontainermore}>
+              <div className={styles.cardcontainermore}  onClick={() => {
+                      navigation("/coursecontent");
+                      dispatch({
+                        type:"COURSE_DETAILS",
+                        payload:{title:"course title"},
+                      })
+                    }}>
                 <p className={styles.moretext}>
                   Learn More
-                  <span
-                    onClick={() => {
-                      navigation("/coursecontent");
-                    }}
-                  >
+                  <span>
                     <img src={require("../../assets/images/rightarrow.png")} />
                   </span>
                 </p>

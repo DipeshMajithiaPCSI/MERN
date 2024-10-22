@@ -102,7 +102,10 @@ function Section2() {
                     {val?.duration}
                   </p>
                 </div>
-                <div className={styles.cardlearnmorediv}>
+                <div className={styles.cardlearnmorediv} onClick={() => {
+              navigation("/courses");
+            }}>
+                  
                   <p className={styles.cardlearnmoretext}>
                     Learn More
                     <span className={styles.clardlearnmorearrow}>
@@ -118,9 +121,6 @@ function Section2() {
         </div>
         <div className={styles.section2button}>
           <button
-            onClick={() => {
-              navigation("/courses");
-            }}
             className={styles.browsemorebutton}
           >
             Browse More Courses
