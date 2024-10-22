@@ -66,7 +66,7 @@ function Courses() {
       duration: "50 Hours",
     },
   ];
-  const dispatch= useDispatch();
+  const dispatch = useDispatch();
   return (
     <div>
       {/* <!-- ----------------------------------------section1------------------------------------------------ --> */}
@@ -114,13 +114,16 @@ function Courses() {
                   {val.duration}
                 </p>
               </div>
-              <div className={styles.cardcontainermore}  onClick={() => {
-                      navigation("/coursecontent");
-                      dispatch({
-                        type:"COURSE_DETAILS",
-                        payload:{title:"course title"},
-                      })
-                    }}>
+              <div
+                className={styles.cardcontainermore}
+                onClick={() => {
+                  navigation("/coursecontent");
+                  dispatch({
+                    type: "COURSE_DETAILS",
+                    payload: { title: val.info },
+                  });
+                }}
+              >
                 <p className={styles.moretext}>
                   Learn More
                   <span>
