@@ -14,7 +14,7 @@ function Header() {
     { name: "About Us", link: "aboutus" },
   ];
   const location = useLocation();
-  let userName = useSelector((state) => state?.allData?.user_details?.email);
+  let userName = useSelector((state) => state?.allData?.user_details?.FullName  );
   return (
     <div>
       <header className={styles.preheader}>

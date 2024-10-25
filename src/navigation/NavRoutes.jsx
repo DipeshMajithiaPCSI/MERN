@@ -21,7 +21,7 @@ function NavRoutes() {
             <Route path="/inquiry" element={<Inquiry />} />
             <Route path="/contactus" element={<ContactUs />} />
             <Route path="/courseslist" element={<CoursesList />} />
-            <Route path="/coursecontent" element={<CourseContent />} />
+            <Route path="/coursecontent/:id" element={<CourseContent />} />
           </Route>
           <Route path="/login" element={<PublicScreens />} />
         </Routes>

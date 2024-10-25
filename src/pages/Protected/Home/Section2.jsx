@@ -1,34 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../../../assets/css/Home.module.css";
 import CardImg1 from "../../../assets/images/cardimg1.png";
 import { useNavigate } from "react-router-dom";
+import Request from 'axios'
+import { base_url } from "../../../components/Baseurl";
+
 function Section2() {
-  let data = [
-    {
-      title: "Introduction to Machine Learning",
-      category: "Artificial Intelligence",
-      image: CardImg1,
-      duration: "10 Weeks",
-    },
-    {
-      title: "React.js - Building Interactive User Interfaces ",
-      category: "Front-End",
-      image: CardImg1,
-      duration: "12 Weeks",
-    },
-    {
-      title: "React Native Building Cross-Platform Mobile Apps ",
-      category: "Front-End",
-      image: CardImg1,
-      duration: "10 Weeks",
-    },
-    {
-      title: "The Complete DBMS Bootcamp ",
-      category: "Back-End",
-      image: CardImg1,
-      duration: "12 Weeks",
-    },
-  ];
+ const [data,setData]=useState([])
   let categorylist = [
     { cat: "All Categories", id: 1 },
     { cat: "Artificial Intelligence", id: 2 },
@@ -40,6 +18,18 @@ function Section2() {
   ];
   const [selectedCategory, setSelectedCategory] = useState("All Categories");
   const navigation = useNavigate();
+  
+  function getCourses(){
+    Request.get(`${base_url}course/getcourse`).then((res)=>{
+      setData(res?.data?.results)
+    }).catch((err)=>{
+      console.log("Error getting courses on homepage",err)
+    })
+  }
+  useEffect(()=>{
+    getCourses()
+  },[])
+
   return (
     <div>
       <div className={styles.section2div}>

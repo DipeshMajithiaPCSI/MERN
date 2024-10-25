@@ -5,17 +5,14 @@ import SignUp from "../../components/SignUp";
 import ForgotPassword from "../../components/ForgotPassword";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import Request from 'axios'
+import { base_url } from "../../components/Baseurl";
+
 function PublicScreens() {
   const dispatch = useDispatch();
   const [type, setType] = useState("login");
   const navigation = useNavigate();
-  let data = [
-    { email: "mitkumar", password: "12345" },
-    {
-      email: "dipesh",
-      password: "12345",
-    },
-  ];
+ 
 
   async function login(email, password) {
     if (
@@ -24,26 +21,25 @@ function PublicScreens() {
     ) {
       alert("Please enter all fields");
     } else {
-      if (
-        // email.current?.value === "dipesh" &&
-        // password.current?.value === "12345"
-        data.map((val) => {
-          return (
-            email.current?.value === val.email &&
-            password.current?.value === val.password
-          );
-        })
-      ) {
+      console.log("Here")
+      Request.post(`${base_url}registration/login`,{
+        email:email.current?.value,
+        password:password.current?.value
+      }).then((res)=>{
         dispatch({
           type: "USER_DETAILS",
-          payload: { email: "mitkumar", password: "12345" },
+          payload: res?.data?.results[0],
         });
 
-        await navigation("/");
-      } else {
-        alert("Incorrect email or password!");
-      }
-    }
+         navigation("/");
+      }).catch((err)=>{
+        alert(`Error: ${err?.response?.data?.message}`)
+        console.log("Error logging in",err)
+      }).finally(()=>{
+        console.log("Function Ended")
+      })
+        
+      } 
   }
 
   return (
