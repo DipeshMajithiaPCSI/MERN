@@ -21,11 +21,12 @@ function PublicScreens() {
     ) {
       alert("Please enter all fields");
     } else {
-      console.log("Here")
+      // console.log("Here")
       Request.post(`${base_url}registration/login`,{
         email:email.current?.value,
         password:password.current?.value
-      }).then((res)=>{
+      }).then((res)=>{  
+        // console.log(res.data.results[0])
         dispatch({
           type: "USER_DETAILS",
           payload: res?.data?.results[0],
@@ -41,7 +42,6 @@ function PublicScreens() {
         
       } 
   }
-
   return (
     <div>
       <PublicBase>

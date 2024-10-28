@@ -125,6 +125,7 @@ span {
 
 .cardcontainermore {
     display: flex;
+    cursor: pointer;
 
 
 }

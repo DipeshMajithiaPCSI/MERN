@@ -79,7 +79,7 @@ function Section2() {
           {data?.map((val, i) => {
             return (
               <div className={styles.cardcontainer} key={String(i)}>
-                <img src={val?.image} />
+                <img src={CardImg1} />
                 <div className={styles.cardcontentsection}>
                   <p className={styles.cardcategorytext}>{val?.category}</p>
                   <p className={styles.cardtitletext}>{val?.title}</p>

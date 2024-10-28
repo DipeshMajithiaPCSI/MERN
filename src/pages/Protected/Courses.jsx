@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from "react";
 import styles from "../../assets/css/Course.module.css";
 import CardImg1 from "../../assets/images/cardimg1.png";
-import CardImg2 from "../../assets/images/cardimg2.png";
-import CardImg3 from "../../assets/images/cardimg3.png";
-import CardImg4 from "../../assets/images/cardimg4.png";
-import CardImg5 from "../../assets/images/cardimg5.png";
-import CardImg6 from "../../assets/images/cardimg6.png";
+// import CardImg2 from "../../assets/images/cardimg2.png";
+// import CardImg3 from "../../assets/images/cardimg3.png";
+// import CardImg4 from "../../assets/images/cardimg4.png";
+// import CardImg5 from "../../assets/images/cardimg5.png";
+// import CardImg6 from "../../assets/images/cardimg6.png";
 import PageImg1 from "../../assets/images/page1img.png";
 import Pg1Menu1 from "../../assets/images/pg1menu1.png";
 import Pg1Menu2 from "../../assets/images/pg1menu2.png";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 import Request from 'axios'
 import { base_url } from "../../components/Baseurl";
 function Courses() {
-  let userName = useSelector((state) => state?.allData?.user_details?.email);
+  // let coursedetails = useSelector((state) => state?.allData?.course_details);
+  // console.log(coursedetails)
+  // alert("username,",userName)
   const [card,setCard]=useState([])
   const navigation = useNavigate();
   function getCourses(){
@@ -27,7 +29,7 @@ function Courses() {
   useEffect(()=>{
     getCourses()
   },[])
-  const dispatch= useDispatch();
+  // const dispatch= useDispatch();
   return (
     <div>
       {/* <!-- ----------------------------------------section1------------------------------------------------ --> */}
@@ -59,13 +61,13 @@ function Courses() {
       {/* <!-- ----------------------------------------section3------------------------------------------------ --> */}
       <div className={styles.section3}>
         {card?.map((val, i) => {
-          console.log("Val",val)
+          // console.log(val.category)
           return (
             <div key={String(i)} className={styles.cardcontainer}>
-              <img className={styles.cardcontainerimg} src={val?.img} />
+              <img className={styles.cardcontainerimg} src={CardImg1} />
               <div className={styles.cardcontainerbottom}>
-                <p className={styles.cardcontainertitle}>{val?.title}</p>
-                <p className={styles.cardcontainerinfo}>{val.info}</p>
+                <p className={styles.cardcontainertitle}>{val?.category}</p>
+                <p className={styles.cardcontainerinfo}>{val.title}</p>
                 <p className={styles.cardcontainertime}>
                   <span>
                     <img
@@ -78,10 +80,10 @@ function Courses() {
               </div>
               <div className={styles.cardcontainermore}  onClick={() => {
                       navigation("/coursecontent"+`/${val?.id}`);
-                      dispatch({
-                        type:"COURSE_DETAILS",
-                        payload:{title:"course title"},
-                      })
+                      // dispatch({
+                      //   type:"COURSE_DETAILS",
+                      //   payload:{val },
+                      // })
                     }}>
                 <p className={styles.moretext}>
                   Learn More
@@ -95,7 +97,7 @@ function Courses() {
         })}
       </div>
       <div>
-        <p>{userName}</p>
+        {/* <p>{coursedetails}</p> */}
       </div>
     </div>
   );
